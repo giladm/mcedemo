@@ -39,9 +39,9 @@ publicRouter.route('/sptest')
     var lon  = req.body.lon ;
     var muid =req.body.muid ;
     var channelid =req.body.channelid ;
-    var store ='b';
+    var store ='B';
     if (lat =="32.1291") {
-      var store ='a';
+      var store ='A';
     }
     console.log('lat',lat,'store',store);
 
@@ -97,7 +97,7 @@ function getJson (muid,channelid,store) {
   var mid ='"'+muid+'"';
   var cid ='"'+channelid+'"';
   var demoJson ='{"channelQualifiers": [ "apv0ZvcHCU" ], "content": { "simple": { "apns": '+
-    '{ "aps": { "alert": "Special Sale for all stores", "sound":"default", "badge": 3 }, "notification-action": { "type": "url", "name": "open url",'+
+    '{ "aps": { "alert": "Special Sale for Store '+store+'", "sound":"default", "badge": 3 }, "notification-action": { "type": "url", "name": "open url",'+
     ' "value": "https://mcedemo.mybluemix.net/sptest-dynamic/'+ store+'" } } } }, "contacts": [ { "channel": { "appKey": "apv0ZvcHCU",'+
     ' "userId":'+mid+', "channelId":'+cid+'} } ] }';
 //  console.log('return',JSON.stringify(demoJson) );
