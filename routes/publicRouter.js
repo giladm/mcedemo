@@ -98,7 +98,7 @@ function getJson (muid,channelid,store) {
   var cid ='"'+channelid+'"';
   var demoJson ='{"channelQualifiers": [ "apv0ZvcHCU" ], "content": { "simple": { "apns": '+
     '{ "aps": { "alert": "Special Sale for all stores", "sound":"default", "badge": 3 }, "notification-action": { "type": "url", "name": "open url",'+
-    ' "value": "http://192.168.1.3:3001/sptest-dynamic/'+ store+'" } } } }, "contacts": [ { "channel": { "appKey": "apv0ZvcHCU",'+
+    ' "value": "https://mcedemo.mybluemix.net/sptest-dynamic/'+ store+'" } } } }, "contacts": [ { "channel": { "appKey": "apv0ZvcHCU",'+
     ' "userId":'+mid+', "channelId":'+cid+'} } ] }';
 //  console.log('return',JSON.stringify(demoJson) );
   return(JSON.parse(demoJson));
