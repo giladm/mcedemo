@@ -55,7 +55,7 @@ publicRouter.route('/sptest')
 //        "Content-Length": Buffer.byteLength(body)
       },
       auth: {
-      'bearer': 'aImaqGxWI5KJ-E0G0mZFLnw8Zw-WN_yU26qIXfyHOYd8S1'
+      'bearer': 'aSUc0n_pewx4PVnQWw6WcsrmRX1Ch4i5856HqzjlKQwUS1'
       },
       json: body
     };
