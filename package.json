@@ -1,16 +1,27 @@
 {
-	"name": "NodejsStarterApp",
-	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node app.js"
-	},
-	"dependencies": {
-		"express": "4.13.x",
-		"cfenv": "1.0.x"
-	},
-	"repository": {},
-	"engines": {
-		"node": "4.x"
-	} 
+  "name": "MceDemo",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Gilad Melamed",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "cfenv": "^1.0.4",
+    "express": "^4.13.4",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "jade": "^1.11.0",
+    "morgan": "^1.8.1",
+    "nib": "^1.1.2",
+    "remove": "^0.1.5",
+    "request": "^2.79.0",
+    "stylus": "^0.54.5",
+    "url": "^0.11.0"
+  },
+  "repository": {},
+  "engines": {
+    "node": "7.4.0"
+  }
 }

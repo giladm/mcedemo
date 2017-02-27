@@ -1,0 +1,10 @@
+block content
+  h3.
+    Tuesday Sale #{title} for #{locals.mobileid}
+  body
+    - if (typeof(locals.mobileid) !== 'undefined') {
+      p (mobileid is #{locals.mobileid})
+    -}
+    - else {
+      p muid is UNDEFINED #{mobileid}
+    -}
