@@ -21,14 +21,28 @@ if (process.env.VCAP_SERVICES) {
     try {
       var env = require('./.env.js');
       console.log('loading .env.js');
-        appEnv.port=3003 ;//process.env['VCAP_APP_PORT'];
-        appEnv.url =appEnv.url.replace(/6003/,appEnv.port);
+      for (var key in env) {
+        if (!(key in process.env)) {
+          process.env[key] = env[key];
+        }
+      }
+
+        vcapServices.mongourl   =process.env['mongourl'];
+        vcapServices.port       =process.env['VCAP_APP_PORT'];
+        vcapServices.client_id  =process.env['CLIENT_ID'];
+        vcapServices.client_secret =process.env['CLIENT_SECRET'];
+        vcapServices.refresh_token =process.env['REFRESH_TOKEN'];
+        
+        appEnv.url =appEnv.url.replace(/6003/,vcapServices.port);
         vcapServices.apphostUrl ='0.0.0.0';
+        
     } catch(ex) {
         console.error('.env.js not found',ex);
     }
 }
-console.log('port',appEnv.port,'url:',appEnv.url);
+console.log('url:',appEnv.url);
+//console.log('vcap',vcapServices);
+//exit();
 
 // public website from clock.uk
 var app = express() ;
@@ -47,7 +61,11 @@ app.use(stylus.middleware(
 ))
 app.use(express.static(__dirname + '/public'))
 // end clock
-var publicRouter = require('./routes/publicRouter');
+// 
+var publicRouter = express.Router();
+require('./routes/publicRouter')(publicRouter,vcapServices);
+app.use('/',publicRouter);
+//
 
 app.route('/')
     .get(function (req, res, next) {
@@ -61,7 +79,7 @@ app.use('/',publicRouter);
 
 // start server on the specified port and binding host
 //vcapServices.apphostUrl
-app.listen(appEnv.port, '0.0.0.0', function() {
+app.listen(vcapServices.port, '0.0.0.0', function() {
 
 	// print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
