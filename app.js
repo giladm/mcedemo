@@ -40,7 +40,7 @@ if (process.env.VCAP_SERVICES) {
         console.error('.env.js not found',ex);
     }
 }
-console.log('url:',appEnv.url);
+console.log('Using url:',appEnv.url);
 //console.log('vcap',vcapServices);
 //exit();
 
