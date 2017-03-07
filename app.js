@@ -26,14 +26,13 @@ if (process.env.VCAP_SERVICES) {
           process.env[key] = env[key];
         }
       }
+        appEnv.port=process.env['VCAP_APP_PORT'];
+        appEnv.url =appEnv.url.replace(/6003/,appEnv.port);
 
-        vcapServices.mongourl   =process.env['mongourl'];
-        vcapServices.port       =process.env['VCAP_APP_PORT'];
         vcapServices.client_id  =process.env['CLIENT_ID'];
         vcapServices.client_secret =process.env['CLIENT_SECRET'];
         vcapServices.refresh_token =process.env['REFRESH_TOKEN'];
-        
-        appEnv.url =appEnv.url.replace(/6003/,vcapServices.port);
+        vcapServices.mongourl   =process.env['mongourl'];        
         vcapServices.apphostUrl ='0.0.0.0';
         
     } catch(ex) {
@@ -78,8 +77,7 @@ app.route('/')
 app.use('/',publicRouter);
 
 // start server on the specified port and binding host
-//vcapServices.apphostUrl
-app.listen(vcapServices.port, '0.0.0.0', function() {
+app.listen(appEnv.port, '0.0.0.0', function() {
 
 	// print a message when the server starts listening
   console.log("server starting on " + appEnv.url);
