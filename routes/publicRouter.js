@@ -19,7 +19,7 @@ module.exports = function (publicRouter,vcapServices) {
         );
     });
 
-    // Testing for Silverpop Engage ./testsp/mid1234
+    // Testing for Silverpop Engage ./sptest/mid1234
     publicRouter.route('/sptest/:muid')
     .get(function (req, res, next) {
         console.log('GET for muid',req.params.muid);
@@ -27,7 +27,7 @@ module.exports = function (publicRouter,vcapServices) {
           console.log( 'Incomplete testsp params',req.params);
           return res.status(403).send('Missing muid')
         } 
-        res.render('sptest',{title: 'Special 10% Sale', mobileid: req.params.muid});
+        res.render('sptest',{title: 'Special 10% Loan', mobileid: req.params.muid});
     });
 
     // Generating Push event for dla exit entry
