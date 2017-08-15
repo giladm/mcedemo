@@ -8,3 +8,7 @@ block content
     - else {
       p muid is UNDEFINED #{mobileid}
     -}
+    I read and agree to the new terms
+    input(type="checkbox", name="completed", checked=(true===false ? "checked" : undefined)) 
+    p
+    button(onclick='something()') Submit
