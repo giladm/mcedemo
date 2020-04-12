@@ -167,17 +167,14 @@ module.exports = function (publicRouter,vcapServices) {
       var contentid ='"'+contId+'"';
 
       // URL Push
-        //var demoJson ='{"channelQualifiers": [ '+akey+' ], "content": { "simple": { "apns": '+
+        /*var demoJson ='{"channelQualifiers": [ '+akey+' ], "content": { "simple": { "apns": '+
         '{ "aps": { "alert": "Special Sale for Store '+store+'", "sound":"default", "badge": 3 }, "notification-action": { "type": "url", "name": "open url",'+
         ' "value": "https://mcedemo.mybluemix.net/sptest-dynamic/'+ store+'" } } } }, "contacts": [ { "channel": { "appKey": '+akey+','+
-        ' "userId":'+mid+', "channelId":'+cid+'} } ] }';
-    // Rich push to specific page
+        ' "userId":'+mid+', "channelId":'+cid+'} } ] }'; */
         
+    // Rich push to specific page
         var demoJson ='{"channelQualifiers": [ '+akey+' ], "content": { "contentId":'+contentid+'}, "contacts": [ { "channel": { "appKey": '+akey+','+
         ' "userId":'+mid+', "channelId":'+cid+'} } ],"campaignName": "push06march2017" }';
-  
-
-
     //  console.log('return',JSON.stringify(demoJson) );
       return(JSON.parse(demoJson));
     }
